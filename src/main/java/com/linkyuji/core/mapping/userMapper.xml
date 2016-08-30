@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.linkyuji.core.dao.userMapper" >
+  <resultMap id="BaseResultMap" type="com.linkyuji.core.pojo.user" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="UserId" property="userid" jdbcType="VARCHAR" />
+    <result column="UserPwd" property="userpwd" jdbcType="VARCHAR" />
+    <result column="rolid" property="rolid" jdbcType="INTEGER" />
+    <result column="LatestLoginTime" property="latestlogintime" jdbcType="TIMESTAMP" />
+    <result column="LatestPwdTime" property="latestpwdtime" jdbcType="TIMESTAMP" />
+    <result column="CreateTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, UserId, UserPwd, rolid, LatestLoginTime, LatestPwdTime, CreateTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.linkyuji.core.pojo.user" >
+    insert into user (id, UserId, UserPwd, 
+      rolid, LatestLoginTime, LatestPwdTime, 
+      CreateTime)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, #{userpwd,jdbcType=VARCHAR}, 
+      #{rolid,jdbcType=INTEGER}, #{latestlogintime,jdbcType=TIMESTAMP}, #{latestpwdtime,jdbcType=TIMESTAMP}, 
+      #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.linkyuji.core.pojo.user" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        UserId,
+      </if>
+      <if test="userpwd != null" >
+        UserPwd,
+      </if>
+      <if test="rolid != null" >
+        rolid,
+      </if>
+      <if test="latestlogintime != null" >
+        LatestLoginTime,
+      </if>
+      <if test="latestpwdtime != null" >
+        LatestPwdTime,
+      </if>
+      <if test="createtime != null" >
+        CreateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="userpwd != null" >
+        #{userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="rolid != null" >
+        #{rolid,jdbcType=INTEGER},
+      </if>
+      <if test="latestlogintime != null" >
+        #{latestlogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="latestpwdtime != null" >
+        #{latestpwdtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.linkyuji.core.pojo.user" >
+    update user
+    <set >
+      <if test="userid != null" >
+        UserId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="userpwd != null" >
+        UserPwd = #{userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="rolid != null" >
+        rolid = #{rolid,jdbcType=INTEGER},
+      </if>
+      <if test="latestlogintime != null" >
+        LatestLoginTime = #{latestlogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="latestpwdtime != null" >
+        LatestPwdTime = #{latestpwdtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null" >
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.linkyuji.core.pojo.user" >
+    update user
+    set UserId = #{userid,jdbcType=VARCHAR},
+      UserPwd = #{userpwd,jdbcType=VARCHAR},
+      rolid = #{rolid,jdbcType=INTEGER},
+      LatestLoginTime = #{latestlogintime,jdbcType=TIMESTAMP},
+      LatestPwdTime = #{latestpwdtime,jdbcType=TIMESTAMP},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getLogin" parameterType="java.lang.String" resultType="com.linkyuji.core.pojo.user">
+  		select *
+  		from user
+  		where userid = #{userid,jdbcType=VARCHAR}
+  </select>
+</mapper>

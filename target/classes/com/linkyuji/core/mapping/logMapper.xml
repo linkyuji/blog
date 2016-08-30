@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.linkyuji.core.dao.logMapper" >
+  <resultMap id="BaseResultMap" type="com.linkyuji.core.pojo.log" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="Table" property="table" jdbcType="VARCHAR" />
+    <result column="Key" property="key" jdbcType="VARCHAR" />
+    <result column="Operate" property="operate" jdbcType="VARCHAR" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="Date" property="date" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, Table, Key, Operate, userid, Date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.linkyuji.core.pojo.log" >
+    insert into log (id, Table, Key, 
+      Operate, userid, Date
+      )
+    values (#{id,jdbcType=INTEGER}, #{table,jdbcType=VARCHAR}, #{key,jdbcType=VARCHAR}, 
+      #{operate,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{date,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.linkyuji.core.pojo.log" >
+    insert into log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="table != null" >
+        Table,
+      </if>
+      <if test="key != null" >
+        Key,
+      </if>
+      <if test="operate != null" >
+        Operate,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="date != null" >
+        Date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="table != null" >
+        #{table,jdbcType=VARCHAR},
+      </if>
+      <if test="key != null" >
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="operate != null" >
+        #{operate,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.linkyuji.core.pojo.log" >
+    update log
+    <set >
+      <if test="table != null" >
+        Table = #{table,jdbcType=VARCHAR},
+      </if>
+      <if test="key != null" >
+        Key = #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="operate != null" >
+        Operate = #{operate,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        Date = #{date,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.linkyuji.core.pojo.log" >
+    update log
+    set Table = #{table,jdbcType=VARCHAR},
+      Key = #{key,jdbcType=VARCHAR},
+      Operate = #{operate,jdbcType=VARCHAR},
+      userid = #{userid,jdbcType=VARCHAR},
+      Date = #{date,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
