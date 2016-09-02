@@ -17,67 +17,8 @@
 
 	<body>
 		<center><label id="hand">Linkyuji个人主页</label>
-			<nav class="navbar navbar-inverse" role="navigation">
-
-				<div id="navbar">
-					<div class="container-fluid">
-						<div>
-							<!--向左对齐-->
-							<ul class="nav navbar-nav navbar-left">
-								<li>
-									<a>首页</a>
-								</li>
-								<li>
-									<a>生活</a>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="button-dropdown-list" data-toggle="dropdown">
-										技术
-										<b class="caret"></b>
-									</a>
-									<ul class="dropdown-menu">
-										<li>
-											<a href="#">html</a>
-										</li>
-										<li>
-											<a href="#">java</a>
-										</li>
-										<li>
-											<a href="#">python</a>
-										</li>
-										<li class="divider"></li>
-										<li>
-											<a href="#">其他</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<a>个人信息</a>
-								</li>
-								<li>
-									<a>其他</a>
-								</li>
-							</ul>
-
-							<!--向右对齐-->
-
-							<form class="navbar-form navbar-right" role="search">
-								<input id="search_text" type="text" class="form-control"></input>
-								<button id="search" type="submit" class="btn btn-default"></button>
-							</form>
-							<ul class="nav navbar-nav navbar-right">
-								<li>
-									<a href="view/login.jsp" >
-										登录</b>
-									</a>
-								</li>
-							</ul>
-
-						</div>
-					</div>
-				</div>
-
-			</nav>
+			<jsp:include page="view/topnav.jsp"/>		
+	
 		</center>
 		<div class="main">
 			<div id="left_board" class="col-lg-5 pull-left">

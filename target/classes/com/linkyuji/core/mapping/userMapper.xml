@@ -119,4 +119,8 @@
   		from user
   		where userid = #{userid,jdbcType=VARCHAR}
   </select>
+  <select id="loadAllUser" resultType="com.linkyuji.core.pojo.user">
+  	select *
+  	from user
+  </select>
 </mapper>

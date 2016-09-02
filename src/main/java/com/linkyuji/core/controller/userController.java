@@ -40,6 +40,6 @@ public class userController {
 			return "redirect:/index.jsp";
 		}
 
-		return "redirect:/view/hello.jsp";
+		return "redirect:/view/admin/main.jsp";
 	}
 }

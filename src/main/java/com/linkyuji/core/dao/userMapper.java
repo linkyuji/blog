@@ -1,5 +1,7 @@
 package com.linkyuji.core.dao;
 
+import java.util.List;
+
 import com.linkyuji.core.pojo.user;
 import com.linkyuji.general.generalDao;
 
@@ -9,5 +11,7 @@ import com.linkyuji.general.generalDao;
  */
 public interface userMapper extends generalDao<user> {
 	user getLogin(String userid);
+
+	List<user> loadAllUser();
 	
 }

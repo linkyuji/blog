@@ -52,9 +52,7 @@ public class UserServiceImpl implements UserService{
 	
 	
 
-	public List<user> loadAllUsers() {
-		return null;
-	}
+
 
 
 

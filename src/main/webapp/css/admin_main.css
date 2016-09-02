@@ -1,0 +1,27 @@
+.left_bar{
+	width: 300px;
+	background-color: #F5F6EB;
+	padding: 5px 0px 5px 0px;
+	border-radius: 5px;
+}
+.control{
+	width: 750px;
+	height: 1000px;
+	background-color: #F5F6EB ;
+	border-radius: 5px;
+	padding: 100pxs;
+}
+
+.meun >li> a{
+	 background-color: #34352C;
+	 color: #C9CABB;
+}
+
+.meun> li >ul>li>a{
+	color:#34352C ;
+}
+.sub_title{
+	font-family: "微软雅黑";
+	font-size: 24px;
+	color:#34352C ;
+}
